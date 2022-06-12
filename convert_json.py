@@ -2,7 +2,9 @@
     @author: Aman Sharma
     date: 12th June, 2022
     statement: We are a file with large number of data of riders in json format,
-                and we need to convert that data to a structured format (given)
+                and we need to convert that data to a structured format (given).
+
+    pylint_score: 9.81
 '''
 
 import json
@@ -107,6 +109,8 @@ class JsonConversion:
                 # write multiple rows
                 writer.writerows(self.csv_data)
             print("CSV file created!!")
+        except PermissionError as per_err:
+            print(f"Permission denied! with message: {per_err}")
         except Exception as excep:
             print(f"Something went wrong with error: {excep}")
 
